@@ -1,4 +1,4 @@
-﻿behaviors:
+behaviors:
   RollerBall:
     trainer_type: ppo
     hyperparameters:
@@ -20,6 +20,6 @@
       extrinsic:
         gamma: 0.99
         strength: 1.0
-    max_steps: 5000
+    max_steps: 100000
     time_horizon: 64
     summary_freq: 10000
