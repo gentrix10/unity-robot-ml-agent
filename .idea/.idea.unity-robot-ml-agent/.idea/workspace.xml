@@ -12,11 +12,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a196ddcb-4d07-48bb-96d7-62fd6ca2d4f5" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.unity-robot-ml-agent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unity-robot-ml-agent/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MLAgentsGuide/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MLAgentsGuide/Editor/MLAgentsGuideContent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MLAgentsGuide/Editor/MLAgentsGuideContent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MLAgentsGuide/Editor/MLAgentsGuideEditors.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MLAgentsGuide/Editor/MLAgentsGuideEditors.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/RobotArms.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/RobotArms.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/RobotArms.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/RobotArms.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RobotArms/Scripts/RobotArmInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ml-agents/mlagents/trainers/cli_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ml-agents/mlagents/trainers/cli_utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,8 @@
       <option name="presentableId" value="Default" />
       <updated>1789280836114</updated>
       <workItem from="1789281012719" duration="5181000" />
-      <workItem from="1789886621020" duration="7275000" />
+      <workItem from="1789886621020" duration="7394000" />
+      <workItem from="1792301573523" duration="4393000" />
     </task>
     <servers />
   </component>
