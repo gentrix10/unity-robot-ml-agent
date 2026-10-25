@@ -1,0 +1,73 @@
+behaviors:
+
+  # ── 3장: 서기 (관측 48 / 연속 행동 18) ───────────────────────────────
+  HumanoidStand:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 2048          # 몸이 매번 다르게 넘어져 편차가 크다. 많이 모아 평균 낸다
+      buffer_size: 20480        # batch_size의 10배
+      learning_rate: 3.0e-4
+      beta: 5.0e-3
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: true           # 속도·각도처럼 범위가 다른 관측을 자동으로 맞춘다
+      hidden_units: 256
+      num_layers: 2
+    reward_signals:
+      extrinsic:
+        gamma: 0.99             # 약 100스텝(2초) 앞까지 본다. 넘어지면 그만큼을 잃는다
+        strength: 1.0
+    max_steps: 4000000        # 팔까지 행동 18개. 200만에서는 아직 오르는 중이었다 (실측: 200만 618 → 400만 876)
+    time_horizon: 1000          # 한 판(MaxStep 1000)을 통째로 본다
+    summary_freq: 20000
+
+  # ── 4장: 걷기 (관측 51 / 연속 행동 18) ───────────────────────────────
+  HumanoidWalk:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 2048
+      buffer_size: 20480
+      learning_rate: 3.0e-4
+      beta: 5.0e-3
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: true
+      hidden_units: 512         # 서기보다 할 일이 많다
+      num_layers: 3
+    reward_signals:
+      extrinsic:
+        gamma: 0.995            # 약 200스텝(4초) 앞까지. 한 걸음의 결과가 늦게 나타난다
+        strength: 1.0
+    max_steps: 10000000
+    time_horizon: 1000
+    summary_freq: 50000
+
+# ── 5장: 커리큘럼 — 목표 속도를 천천히 → 빠르게 ────────────────────────
+# WalkAgent가 판마다 "target_speed"를 읽는다. 이 부분을 지우면 Inspector 값(1.0)으로 고정된다.
+environment_parameters:
+  target_speed:
+    curriculum:
+      - name: Slow
+        completion_criteria:
+          measure: reward
+          behavior: HumanoidWalk
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 2100      # 1.0 고정 학습의 최종 보상(약 3050)의 70%. 커리큘럼 자체는 실측 전
+        value: 0.5
+      - name: Normal
+        completion_criteria:
+          measure: reward
+          behavior: HumanoidWalk
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 2100
+        value: 1.0
+      - name: Fast
+        value: 1.5
